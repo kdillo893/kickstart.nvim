@@ -1,0 +1,6 @@
+# No "plugin compiled" file
+plugin/*
+
+#no lazy lock compiled
+lazy-lock.json
+

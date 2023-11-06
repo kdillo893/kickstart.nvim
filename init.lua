@@ -1,1 +1,1 @@
-require("kdill")
+require('kdill.lazy')
