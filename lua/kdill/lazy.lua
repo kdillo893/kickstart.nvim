@@ -63,5 +63,14 @@ require("lazy").setup({
     'mfussenegger/nvim-jdtls',
     --vim colorizer
     { 'brenoprata10/nvim-highlight-colors' },
-
+    -- maven vim plugin
+    -- 'mikelue/vim-maven-plugin',
+    --commenter
+    {
+        'numToStr/Comment.nvim',
+        opts = {
+            -- add any options here
+        },
+        lazy = false,
+    },
 })
