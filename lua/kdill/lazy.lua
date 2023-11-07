@@ -12,8 +12,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 --require all my kemaps and special things...
-require("keymaps")
-require("set")
+require("kdill.keymaps")
+require("kdill.set")
 
 require("lazy").setup({
     "folke/which-key.nvim",
@@ -60,5 +60,8 @@ require("lazy").setup({
 		}
 	},
     -- Java LS
-    'mfussenegger/nvim-jdtls'
+    'mfussenegger/nvim-jdtls',
+    --vim colorizer
+    { 'brenoprata10/nvim-highlight-colors' },
+
 })

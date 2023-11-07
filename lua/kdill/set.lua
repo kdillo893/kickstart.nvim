@@ -1,4 +1,3 @@
-
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -16,6 +15,8 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
+-- for vim to highlight colors of css
+--vim.opt.t_Co = 256
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
