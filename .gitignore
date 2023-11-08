@@ -4,3 +4,8 @@ plugin/*
 #no lazy lock compiled
 lazy-lock.json
 
+# Kickstart ignores
+tags
+test.sh
+.luarc.json
+nvim
