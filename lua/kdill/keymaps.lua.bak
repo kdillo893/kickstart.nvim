@@ -1,4 +1,4 @@
-vim.g.mapleader = " " -- doing space instead of \ b/c fuck \
+vim.g.mapleader = " " -- doing space instead of \ b/c f \
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
