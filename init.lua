@@ -375,8 +375,6 @@ vim.defer_fn(function()
         },
       },
     },
-
-    modules = {},
   }
 end, 0)
 
