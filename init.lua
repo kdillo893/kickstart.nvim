@@ -296,11 +296,31 @@ vim.defer_fn(function()
     -- Add languages to be installed here that you want installed for treesitter
     ensure_installed = { 'c', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
 
+    --ignore the following:
+    ignore_install = {},
+
+    --when installing, do synchronous...
+    sync_install = false,
+
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
 
-    highlight = { enable = true },
+    highlight = { 
+      enable = true,
+      disable = function(lang, buf) 
+        local max_filesize = 100 * 1024 -- 100KB
+        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+        if ok and stats.size > max_filesize then
+          return true
+        end
+      end,
+
+      --vim regex highlighting.
+      --additional_vim_regex_highlighting = false,
+    },
+    
     indent = { enable = true },
+
     incremental_selection = {
       enable = true,
       keymaps = {
@@ -310,6 +330,7 @@ vim.defer_fn(function()
         node_decremental = '<M-space>',
       },
     },
+
     textobjects = {
       select = {
         enable = true,
@@ -354,6 +375,8 @@ vim.defer_fn(function()
         },
       },
     },
+
+    modules = {},
   }
 end, 0)
 
@@ -403,15 +426,23 @@ local on_attach = function(_, bufnr)
 end
 
 -- document existing key chains
-require('which-key').register {
-  ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-  ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-  ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-  ['<leader>h'] = { name = 'More git', _ = 'which_key_ignore' },
-  ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-  ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-  ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-}
+local wk = require('which-key')
+wk.add({
+  { '<leader>c', group = '[C]ode'},
+  { '<leader>c_', hidden = true},
+  { '<leader>d', group = '[D]ocument'},
+  { '<leader>d_', hidden = true},
+  { '<leader>g', group = '[G]it' },
+  { '<leader>g_', hidden = true},
+  { '<leader>h', group = 'More git' },
+  { '<leader>h_', hidden = true},
+  { '<leader>r', group = '[R]ename' },
+  { '<leader>r_', hidden = true},
+  { '<leader>s', group = '[S]earch' },
+  { '<leader>s_', hidden = true},
+  { '<leader>w', group = '[W]orkspace' },
+  { '<leader>w_', hidden = true},
+})
 
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
