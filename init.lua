@@ -31,10 +31,12 @@ require('lazy').setup({
 
   -- Git related plugins
   'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
+  --I don't care about managing github via nvim
+  --'tpope/vim-rhubarb',
 
   -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
+  -- THIS WAS OVERRIDING MY SHIT!
+  --'tpope/vim-sleuth',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -73,6 +75,7 @@ require('lazy').setup({
 
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
+
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -122,6 +125,7 @@ require('lazy').setup({
     end,
   },
 
+  --this is dope
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -137,14 +141,17 @@ require('lazy').setup({
   },
 
   -- I don't like the indentation markers
-
   {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help ibl`
     main = 'ibl',
-    opts = {},
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {
+      whitespace = { highlight = { "whitespace", "NonText" } },
+    },
   },
 
   -- "gc" to comment visual regions/lines
@@ -185,6 +192,9 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
+
+  -- explicitly including java lsp... doesn't work
+  -- require 'mfussenegger/nvim-jdtls'
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
