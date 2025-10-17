@@ -29,7 +29,7 @@ end)
 vim.o.breakindent = true
 
 -- my indent and tabbing options
--- 2 spaces per tab 
+-- 2 spaces per tab
 vim.o.tabstop = 2
 vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
@@ -65,7 +65,7 @@ vim.o.splitbelow = true
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
-vim.o.list = true
+vim.o.list = false
 --vim.o.listchars = "tab=» , trail=·, nbsp=␣"
 
 -- Preview substitutions live, as you type!
@@ -95,13 +95,13 @@ vim.opt.incsearch = true
 -- offset scrolling such that you don't go to the absolute edge
 vim.opt.scrolloff = 12
 -- draw the sign column
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = 'yes'
 
 -- allow other options for text in filename
-vim.opt.isfname:append("@-@")
+vim.opt.isfname:append '@-@'
 
 -- update swap/edits faster
 vim.opt.updatetime = 50
 
 -- color the column at 80, give an indicator of where I am lengthwise
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = '80'
