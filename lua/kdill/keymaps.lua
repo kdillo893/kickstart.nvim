@@ -19,18 +19,15 @@ vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 -- vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', function()
-  vim.diagnostic.jump { count = -1, float = true }
-end, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', ']d', function()
-  vim.diagnostic.jump { count = 1, float = true }
-end, { desc = 'Go to next diagnostic message' })
+-- vim.keymap.set('n', '[d', function()
+--   vim.diagnostic.jump { count = -1, float = true }
+-- end, { desc = 'Go to previous diagnostic message' })
+-- vim.keymap.set('n', ']d', function()
+--   vim.diagnostic.jump { count = 1, float = true }
+-- end, { desc = 'Go to next diagnostic message' })
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+-- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-
--- have a keystroke for file explore
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
 -- moving around the current visual block
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
